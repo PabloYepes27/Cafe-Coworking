@@ -1,0 +1,34 @@
+
+
+<div class="row">
+    <div class="col">
+        <h1>CAFE-COWORKING</h1> 
+    </div>
+    <div class="col trm" >
+        <button (click)="getTrm()"> $ </button>
+        <h4>La TRM es ${{trm}}</h4>
+    </div>
+</div>
+<hr>
+<div>
+    <button (click)="getSpaces()"> Refrescar </button>
+    <hr>
+    <ul>
+        <li class="cards" *ngFor="let espacio of espacios; let i = index">
+            <h4>Espacio #{{ i + 1 }}</h4>
+            <div *ngIf="espacio.status">
+                <p style="color: red;">Reservado</p>
+                <app-actualizar [espacio]="espacio"></app-actualizar>
+                <app-eliminar [space_id]="espacio.space_id"></app-eliminar>
+                <hr>
+            </div>
+            <div *ngIf="!espacio.status">
+                <p style="color: green;">Disponible</p>
+                <app-agregar [espacio]="espacio"></app-agregar>
+                <hr>
+            </div>
+        </li>
+      </ul>
+</div>
+
+<hr>

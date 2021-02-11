@@ -1,0 +1,20 @@
+.row {
+    display: flex;
+}
+
+.col {
+    flex-grow: 1;
+    margin-right: 10px;
+    justify-content: space-between;
+
+}
+
+.trm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cards {
+    display: block;
+}
