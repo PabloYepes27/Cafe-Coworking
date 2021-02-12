@@ -19,21 +19,28 @@
     <hr>
 
     <div class="col-md-3" *ngFor="let espacio of espacios; let i = index">
-        <em class="fas fa-laptop-code fa-5x"></em>
-        <!-- <h4>Espacio #{{ i + 1 }}</h4> -->
-            <div *ngIf="espacio.status">
+        <div class="card" >
+            <img class="card-img-top" src="../../../assets/default.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Espacio {{i+1}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div *ngIf="espacio.status" class="row" style="text-align: right;">
                 <!-- <em class="fas fa-times-circle" style="color: red;"></em> -->
                 <!-- <p style="color: red;">Reservado</p> -->
-                <div class="row">
+             
                     <app-actualizar [espacio]="espacio"></app-actualizar>
                     <app-eliminar [space_id]="espacio.space_id"></app-eliminar>
-                </div>
+               
             </div>
-            <div *ngIf="!espacio.status">
+            <div *ngIf="!espacio.status" class="row" style="text-align: right;">
                 <!-- <em class="fas fa-check-square" style="color: green;"></em> -->
                 <!-- <p style="color: green;">Disponible</p> -->
                 <app-agregar [espacio]="espacio"></app-agregar>
             </div>
+            </div>
+          </div>
+          <br>
+        <!-- <h4>Espacio #{{ i + 1 }}</h4> -->
     </div>
 
 
