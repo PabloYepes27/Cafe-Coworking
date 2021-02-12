@@ -1,23 +1,38 @@
 <ng-template #contenido let-modal>
-    <div>
-        <div class="modal-header">
-            <h1 class="modal-title">Actualizar</h1>
-            <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+  
+    <div class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Actualizar</h5>
+              <button type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
-            </button>
+              </button>
+            </div>
+            <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Valor</label>
+                  <input type="text" maxlength="100" placeholder="Valor" class="form-control" name="book" [(ngModel)]="payedValue">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Desde</label>
+                  <input type="date" name="date" [(ngModel)]="dateIn" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Hasta</label>
+                    <input type="date" name="date" [(ngModel)]="dateOut" class="form-control">
+                  </div>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-primary">Aceptar</button>
+              <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Cerrar</button>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-            <label>Valor Reserva</label>
-            <input type="text" maxlength="100" placeholder="$$$$" name="book" [(ngModel)]="payedValue">
-            <label>Fecha Desde</label>
-            <input type="date" name="date" [(ngModel)]="dateIn">
-            <label>Fecha Hasta</label>
-            <input type="date" name="date" [(ngModel)]="dateOut">
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="acceptSubmit();">Aceptar</button>
-        </div>
-    </div>
+      </div>
 </ng-template>
 
 <button type="button" class="btn btn-outline-success" (click)="openSM(contenido)">Actualizar</button>
