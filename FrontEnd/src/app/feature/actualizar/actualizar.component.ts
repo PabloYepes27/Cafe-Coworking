@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, ViewEncapsulation} from '@angular/core';
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-actualizar',
@@ -14,6 +13,10 @@ export class ActualizarComponent {
   constructor( private http: HttpClient, private modal:NgbModal) { }
 
   @Input() espacio: any = {}
+
+  payedValue: any;
+  dateIn: any;
+  dateOut: any;
 
   openSM(contenido: any){
     this.modal.open(contenido,{size:'sm'});

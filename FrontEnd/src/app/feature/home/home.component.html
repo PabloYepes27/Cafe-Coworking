@@ -25,22 +25,20 @@
               <h5 class="card-title">Espacio {{i+1}}</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <div *ngIf="espacio.status" class="row" style="text-align: right;">
-                <!-- <em class="fas fa-times-circle" style="color: red;"></em> -->
-                <!-- <p style="color: red;">Reservado</p> -->
+
              
                     <app-actualizar [espacio]="espacio"></app-actualizar>
                     <app-eliminar [space_id]="espacio.space_id"></app-eliminar>
                
             </div>
             <div *ngIf="!espacio.status" class="row" style="text-align: right;">
-                <!-- <em class="fas fa-check-square" style="color: green;"></em> -->
-                <!-- <p style="color: green;">Disponible</p> -->
+
                 <app-agregar [espacio]="espacio"></app-agregar>
             </div>
             </div>
           </div>
           <br>
-        <!-- <h4>Espacio #{{ i + 1 }}</h4> -->
+
     </div>
 
 
