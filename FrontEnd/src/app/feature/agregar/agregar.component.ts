@@ -20,7 +20,8 @@ export class AgregarComponent {
   dateIn: any;
   dateOut: any;
 
-  lista = []
+  listaIn = [];
+  listaOut = [];
   
   
   openSM(contenido: any){
@@ -28,39 +29,20 @@ export class AgregarComponent {
   }
   
   async acceptSubmit() {
-    console.log("payedValue");
-    console.log(this.payedValue);
-    console.log("dateIn");
-    this.lista = this.dateIn.split('-');
-    console.log(this.dateIn.split('-'));
-
-    console.log("dateOut");
-    console.log(this.dateOut);
-    // this.nuevoEspacio["payed_value"] = this.payedValue
-    // this.nuevoEspacio["date_in"] = this.dateIn
-    // this.nuevoEspacio["date_out"] = this.dateOut
-    // this.nuevoEspacio["status"] = true
-    // this.http.post('http://127.0.0.1:5000/api/reservation', this.nuevoEspacio)
-    //       .subscribe( ( resp: any ) => {
-      //         console.log(resp); 
-      // });
-      
-      
-    }
+    this.listaIn = this.dateIn.split('-');
+    this.dateIn = (this.listaIn[2] + "/" + this.listaIn[1] + "/" + this.listaIn[0]);
+    this.listaOut = this.dateOut.split('-');
+    this.dateOut = (this.listaOut[2] + "/" + this.listaOut[1] + "/" + this.listaOut[0]);
     
-    getSpaces() {
-      this.http.get('http://127.0.0.1:5000/api/reservation')
-      .subscribe( ( resp: any ) => {
-        console.log("GET");
-        console.log(resp);
+    this.espacio["payed_value"] = this.payedValue
+    this.espacio["date_in"] = this.dateIn
+    this.espacio["date_out"] = this.dateOut
+    this.espacio["status"] = true
+    this.http.post('http://127.0.0.1:5000/api/reservation', this.espacio)
+          .subscribe( ( resp: any ) => {
+              console.log(resp); 
       });
-      
-    }
-    
-
-
-
-
+  }
 
 
   }

@@ -2,20 +2,16 @@
 
 <div class="row">
     <div class="col">
+        <em class="fas fa-coffee"></em>
         <h1>CAFE-COWORKING</h1> 
     </div>
     <div class="col trm" >
-        <button (click)="getTrm()"> $ </button>
-        <h4>La TRM es ${{trm}}</h4>
+        <em (click)="getTrm()" class="fas fa-search-dollar" ></em>
+        <h4>  La TRM es ${{trm}}</h4>
     </div>
 </div>
 <hr>
-<div class="row">
-
-    <div class="col-md-12 col-xs-12" style="text-align: right;">
-        <button class="btn btn-success" (click)="getSpaces()"> Refrescar </button>
-    </div>
-    
+<div class="row">    
     <hr>
 
     <div class="col-md-3" *ngFor="let espacio of espacios; let i = index">
