@@ -12,24 +12,27 @@
 <hr>
 <div class="row">
 
-    <div class="col-md-12 col-xs-12" style="text-align: center;">
+    <div class="col-md-12 col-xs-12" style="text-align: right;">
         <button class="btn btn-success" (click)="getSpaces()"> Refrescar </button>
     </div>
     
     <hr>
 
     <div class="col-md-3" *ngFor="let espacio of espacios; let i = index">
-        <h4>Espacio #{{ i + 1 }}</h4>
+        <em class="fas fa-laptop-code fa-5x"></em>
+        <!-- <h4>Espacio #{{ i + 1 }}</h4> -->
             <div *ngIf="espacio.status">
-                <p style="color: red;">Reservado</p>
-                <app-actualizar [espacio]="espacio"></app-actualizar>
-                <app-eliminar [space_id]="espacio.space_id"></app-eliminar>
-                <hr>
+                <!-- <em class="fas fa-times-circle" style="color: red;"></em> -->
+                <!-- <p style="color: red;">Reservado</p> -->
+                <div class="row">
+                    <app-actualizar [espacio]="espacio"></app-actualizar>
+                    <app-eliminar [space_id]="espacio.space_id"></app-eliminar>
+                </div>
             </div>
             <div *ngIf="!espacio.status">
-                <p style="color: green;">Disponible</p>
+                <!-- <em class="fas fa-check-square" style="color: green;"></em> -->
+                <!-- <p style="color: green;">Disponible</p> -->
                 <app-agregar [espacio]="espacio"></app-agregar>
-                <hr>
             </div>
     </div>
 
