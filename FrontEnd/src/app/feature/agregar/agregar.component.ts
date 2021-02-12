@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, ViewEncapsulation} from '@angular/core';
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
@@ -10,25 +11,23 @@ import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AgregarComponent {
 
+  
   constructor( private http: HttpClient, private modal:NgbModal) { }
-
+  
   @Input() espacio: any = {}
-  nuevoEspacio = this.espacio
-  @Input() payedValue: any;
-  @Input() dateIn: string
-  @Input() dateOut: string
 
+  payedValue: any;
+  dateIn: any;
+  dateOut: any;
+  
   
   openSM(contenido: any){
     this.modal.open(contenido,{size:'sm'});
-    console.log("Espacio");
-    console.log(this.nuevoEspacio);
   }
-
   
-  acceptSubmit(payedValue: any) {
+  async acceptSubmit() {
     console.log("payedValue");
-    console.log(payedValue);
+    console.log(this.payedValue);
     console.log("dateIn");
     console.log(this.dateIn);
     console.log("dateOut");
@@ -39,23 +38,29 @@ export class AgregarComponent {
     // this.nuevoEspacio["status"] = true
     // this.http.post('http://127.0.0.1:5000/api/reservation', this.nuevoEspacio)
     //       .subscribe( ( resp: any ) => {
-    //         console.log(resp);
+      //         console.log(resp); 
+      // });
+      
+      
+    }
+    
+    getSpaces() {
+      this.http.get('http://127.0.0.1:5000/api/reservation')
+      .subscribe( ( resp: any ) => {
+        console.log("GET");
+        console.log(resp);
+      });
+      
+    }
+    
 
-    // });
- 
+
+
+
+
 
   }
-
-  getSpaces() {
-    this.http.get('http://127.0.0.1:5000/api/reservation')
-          .subscribe( ( resp: any ) => {
-            console.log("GET");
-            console.log(resp);
-    });
-
-  }
-
-}
-
-
-
+  
+  
+  
+  

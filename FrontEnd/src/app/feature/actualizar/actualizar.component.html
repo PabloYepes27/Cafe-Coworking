@@ -7,7 +7,8 @@
             </button>
         </div>
         <div class="modal-body">
-            <form>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <label>Field1</label>
                 <input type="text" placeholder="Valor a pagar" name="payedValue">
                 <input type="date" placeholder="date_in" name="Date in" >
                 Desde

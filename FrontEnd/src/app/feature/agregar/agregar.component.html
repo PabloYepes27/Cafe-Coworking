@@ -7,16 +7,15 @@
             </button>
         </div>
         <div class="modal-body">
-            <form>
-                <input type="text" placeholder="Valor a pagar" name="payedValue">
-                <input type="date" placeholder="date_in" name="Date in" >
-                Desde
-                <input type="date" placeholder="date_out" name="Date out" >
-                Hasta
-            </form>
+            <label>Valor Reserva</label>
+            <input type="text" maxlength="100" placeholder="$$$$" name="book" [(ngModel)]="payedValue">
+            <label>Fecha Desde</label>
+            <input type="date" name="date" [(ngModel)]="dateIn">
+            <label>Fecha Hasta</label>
+            <input type="date" name="date" [(ngModel)]="dateOut">
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="acceptSubmit(payedValue);">Aceptar</button>
+            <button type="button" class="btn btn-success" (click)="acceptSubmit(); modal.dismiss();">Aceptar</button>
         </div>
     </div>
 </ng-template>
