@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, ViewEncapsulation} from '@angular/core';
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-actualizar',
