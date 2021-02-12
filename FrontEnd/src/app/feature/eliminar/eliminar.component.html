@@ -1,18 +1,26 @@
 <ng-template #contenido let-modal>
-    <div>
-        <div class="modal-header">
-            <h1 class="modal-title">Eliminar</h1>
-            <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+    <div class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Eliminar</h5>
+              <button type="button" (click)="modal.dismiss()">
                 <span aria-hidden="true">&times;</span>
-            </button>
+              </button>
+            </div>
+            <div class="modal-body">
+            <form>
+               <p>Está seguro que desea eliminar la reserva?</p>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-primary" (click)="deleteSubmit(); modal.dismiss();">Aceptar</button>
+              <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Cerrar</button>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-            Está seguro que desea eliminar la reserva?
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="deleteSubmit(); modal.dismiss();">Aceptar</button>
-        </div>
-    </div>
+      </div>
 </ng-template>
 
 <button type="button" class="btn btn-outline-danger" (click)="openSM(contenido)">Eliminar</button>
