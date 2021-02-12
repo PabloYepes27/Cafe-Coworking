@@ -19,6 +19,8 @@ export class AgregarComponent {
   payedValue: any;
   dateIn: any;
   dateOut: any;
+
+  lista = []
   
   
   openSM(contenido: any){
@@ -29,7 +31,9 @@ export class AgregarComponent {
     console.log("payedValue");
     console.log(this.payedValue);
     console.log("dateIn");
-    console.log(this.dateIn);
+    this.lista = this.dateIn.split('-');
+    console.log(this.dateIn.split('-'));
+
     console.log("dateOut");
     console.log(this.dateOut);
     // this.nuevoEspacio["payed_value"] = this.payedValue
