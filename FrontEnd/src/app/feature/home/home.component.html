@@ -10,25 +10,40 @@
     </div>
 </div>
 <hr>
-<div>
-    <button (click)="getSpaces()"> Refrescar </button>
+<div class="row">
+
+    <div class="col-md-12 col-xs-12" style="text-align: right;">
+        <button class="btn btn-success" (click)="getSpaces()"> Refrescar </button>
+    </div>
+    
     <hr>
-    <ul>
-        <li class="cards" *ngFor="let espacio of espacios; let i = index">
-            <h4>Espacio #{{ i + 1 }}</h4>
-            <div *ngIf="espacio.status">
-                <p style="color: red;">Reservado</p>
-                <app-actualizar [espacio]="espacio"></app-actualizar>
-                <app-eliminar [space_id]="espacio.space_id"></app-eliminar>
-                <hr>
+
+    <div class="col-md-3" *ngFor="let espacio of espacios; let i = index">
+        <div class="card" >
+            <img class="card-img-top" src="../../../assets/default.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Espacio {{i+1}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div *ngIf="espacio.status" class="row" style="text-align: right;">
+                <!-- <em class="fas fa-times-circle" style="color: red;"></em> -->
+                <!-- <p style="color: red;">Reservado</p> -->
+             
+                    <app-actualizar [espacio]="espacio"></app-actualizar>
+                    <app-eliminar [space_id]="espacio.space_id"></app-eliminar>
+               
             </div>
-            <div *ngIf="!espacio.status">
-                <p style="color: green;">Disponible</p>
+            <div *ngIf="!espacio.status" class="row" style="text-align: right;">
+                <!-- <em class="fas fa-check-square" style="color: green;"></em> -->
+                <!-- <p style="color: green;">Disponible</p> -->
                 <app-agregar [espacio]="espacio"></app-agregar>
-                <hr>
             </div>
-        </li>
-      </ul>
+            </div>
+          </div>
+          <br>
+        <!-- <h4>Espacio #{{ i + 1 }}</h4> -->
+    </div>
+
+
 </div>
 
 <hr>

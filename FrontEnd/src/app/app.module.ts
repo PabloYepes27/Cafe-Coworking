@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AgregarComponent } from './feature/agregar/agregar.component';
 import { ActualizarComponent } from './feature/actualizar/actualizar.component';
 import { EliminarComponent } from './feature/eliminar/eliminar.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -26,6 +27,7 @@ import { EliminarComponent } from './feature/eliminar/eliminar.component';
     AppRoutingModule,
     ProductoModule,
     CoreModule,
+    FormsModule,
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

@@ -7,7 +7,8 @@
             </button>
         </div>
         <div class="modal-body">
-            <form>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <label>Field1</label>
                 <input type="text" placeholder="Valor a pagar" name="payedValue">
                 <input type="date" placeholder="date_in" name="Date in" >
                 Desde
@@ -21,4 +22,4 @@
     </div>
 </ng-template>
 
-<button type="button" (click)="openSM(contenido)">Actualizar</button>
+<button type="button" class="btn btn-outline-success" (click)="openSM(contenido)">Actualizar</button>
